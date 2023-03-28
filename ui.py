@@ -55,6 +55,8 @@ def send_draft(content,recepient,subject):
     message = {'message': {'raw': base64.urlsafe_b64encode(message.as_bytes()).decode()}}
     draft = service.users().drafts().create(userId='me', body=message).execute()
 
+st.title('Meet Recap Generator')
+
 # Check if the user has authorized the Gmail API
 if 'creds' not in st.session_state:
     st.write("Please authenticate with your Google account to continue")
